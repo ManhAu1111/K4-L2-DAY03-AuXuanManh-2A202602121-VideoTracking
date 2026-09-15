@@ -30,12 +30,9 @@ Ba lượt tua bắt được gì (lượt 1 nhìn ID, lượt 2 frame đầu/cu
 - Lượt 2: Đảm bảo điểm bắt đầu và điểm kết thúc (Outside) khớp đúng frame xuất hiện và biến mất.
 - Lượt 3: Đảm bảo các frame nội suy ở giữa keyframe không bị trôi bbox (interpolation drift).
 
-Kiểm chéo với: `Peer Reviewer`. Chi tiết ở `reports/review_partner.md`.
-Số lỗi bạn tìm được trong bản của bạn ấy: `3`. Số lỗi bạn ấy tìm được trong bản của bạn: `3`.
+Kiểm chéo: N/A (Bài tập thực hiện cá nhân).
+Tác giả tiến hành Self-QC qua 3 lượt tua tự rà soát (Lượt 1 kiểm tra identity, Lượt 2 kiểm tra endpoint/outside, Lượt 3 kiểm tra interpolation).
 
-Ca nào hai người quyết khác nhau, và luật nào còn thiếu trong `GUIDELINE_MINI.md`?
-
-`Ca xe vừa đi ra khỏi rìa ảnh: Cần làm rõ thời điểm chính xác bấm Outside (ngay khi vừa khuất 100%).`
 
 ## 3. Pre-gold lock và chấm trước/sau rework
 
@@ -128,5 +125,5 @@ Bạn sẽ sửa gì trong `GUIDELINE_MINI.md`, và đổi gì trong quy trình 
 - [x] `outputs/model_reid_clip_01.txt`
 - [x] `outputs/model_run_config.json`
 - [x] `outputs/eval_bytetrack_vs_gold.json`, `outputs/eval_reid_vs_gold.json`, `outputs/eval_reid_vs_me.json`
-- [x] `reports/review_partner.md`
 - [x] `reports/REPORT.md` (file này)
+
