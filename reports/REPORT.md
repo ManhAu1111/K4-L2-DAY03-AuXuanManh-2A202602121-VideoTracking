@@ -56,9 +56,10 @@ Sau khi đọc danh sách lỗi, bạn đã sửa cụ thể những gì? Ghi th
 
 | Loại lỗi | Frame | ID | Đã sửa thế nào |
 | --- | --- | --- | --- |
-| FP (bbox thừa) | 79-100 | 6 | Bật Outside đúng frame xe hoàn toàn khuất |
-| FP (bbox thừa) | 62-78 | 5 | Chỉnh điểm bắt đầu keyframe khít hơn |
-| Bbox trôi | 83 | 5 | Thêm keyframe bổ sung tại frame 83 để tăng IoU |
+| FP (bbox thừa) | 157 | 8 | Bật Outside ngay tại frame 158 khi xe 8 biến mất khỏi khung hình |
+| Bbox nhú rìa | 131-171 | 5 | Chỉnh điểm bắt đầu keyframe khít hơn tại frame 131 khi xe nhú rìa |
+| Occlusion (che lấp) | 185-189 | 6, 2 | Bật thuộc tính Occluded cho xe 2 khi bị xe 6 che lấp từ frame 185 đến 189 |
+
 
 ## 4. Kết quả model: ByteTrack control vs ReID treatment
 

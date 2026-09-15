@@ -46,26 +46,26 @@ Bổ sung cá nhân: `Chỉ gán xe bốn bánh thật đang lưu thông hoặc 
 Ghi **frame cụ thể** và **ID cụ thể**, không ghi chung chung.
 
 ### Ca 1
-- Clip / frame / ID: `clip_01` / frame 62-78 / ID 5
-- Tình huống: Xe vừa xuất hiện ở ranh giới rìa ảnh, kích thước nhỏ và bị che lấp một phần bởi rìa.
-- Quyết định: Đặt keyframe đầu tiên ngay tại frame 62 khi phần kim loại xe nhìn thấy được nhú qua mép ảnh; thu gọn bbox ôm sát phần nhìn thấy.
+- Clip / frame / ID: `clip_01` / frame 131-171 / ID 5
+- Tình huống: Xe 5 vừa xuất hiện ở ranh giới rìa ảnh từ frame 131 đến frame 171, kích thước ban đầu nhỏ và bị che lấp một phần bởi rìa ảnh.
+- Quyết định: Đặt keyframe đầu tiên ngay tại frame 131 khi phần kim loại xe nhìn thấy được nhú qua mép ảnh; thu gọn bbox ôm sát phần nhìn thấy, bật `Outside` tại frame 172 khi xe đi khuất hẳn.
 - Lý do: Đảm bảo độ chính xác IoU và tránh tạo bbox ảo ngoài vùng hiển thị của ảnh.
 
 ### Ca 2
-- Clip / frame / ID: `clip_01` / frame 79-100 / ID 6
-- Tình huống: Xe 6 di chuyển cắt qua phía sau xe khác đang dừng đỗ.
-- Quyết định: Duy trì duy nhất `track_id` 6 xuyên suốt, bật thuộc tính `Occluded` ở các frame bị che lấp.
-- Lý do: Thời gian che lấp ngắn (22 frames, dưới 2 giây), quỹ đạo xe di chuyển thẳng không đổi hướng.
+- Clip / frame / ID: `clip_01` / frame 185-189 / ID 6 & ID 2
+- Tình huống: Xe 6 di chuyển cắt qua và che khuất xe 2 từ frame 185 đến frame 189.
+- Quyết định: Duy trì duy nhất `track_id` cho cả xe 6 và xe 2 xuyên suốt, bật thuộc tính `Occluded` cho xe 2 bị che lấp ở các frame 185-189.
+- Lý do: Thời gian che lấp ngắn (5 frames, dưới 1 giây), quỹ đạo di chuyển rõ ràng, giữ nguyên identity chuẩn cho cả 2 xe.
 
 ### Ca 3
-- Clip / frame / ID: `clip_01` / frame 133-135 / ID 8
-- Tình huống: Xe 8 đi ra khỏi mép dưới khung hình.
-- Quyết định: Bật thuộc tính `Outside` ngay tại frame 136 khi xe hoàn toàn khuất khỏi khung hình.
+- Clip / frame / ID: `clip_01` / frame 157 / ID 8
+- Tình huống: Xe 8 di chuyển ra khỏi mép dưới khung hình và biến mất tại frame 157.
+- Quyết định: Bật thuộc tính `Outside` ngay tại frame 158 khi xe 8 hoàn toàn khuất khỏi khung hình.
 - Lý do: Tránh để lại "bbox treo" kéo dài ở các frame sau gây ra lỗi gán thừa False Positive (FP).
 
 ## 5. Sửa gì sau khi chấm với gold và sau khi kiểm chéo
 
 Luật nào trong file này hoá ra còn thiếu hoặc còn mơ hồ? Viết lại cho rõ:
 
-- `Cần bật thuộc tính Outside chính xác tại frame kế tiếp ngay khi xe vừa khuất hẳn 100% để tránh lỗi FP bbox treo.`
-- `Tăng mật độ keyframe (khoảng 3-5 frame / keyframe) tại các mốc xe di chuyển thay đổi vận tốc để tránh hiện tượng trôi bbox (interpolation drift) giữa 2 keyframe.`
+- `Cần bật thuộc tính Outside chính xác tại frame 158 (ngay khi xe 8 khuất hẳn ở frame 157) để tránh lỗi FP bbox treo.`
+- `Tăng mật độ keyframe (khoảng 3-5 frame / keyframe) tại các mốc xe di chuyển thay đổi vận tốc hoặc che lấp (như frame 185-189 của ID 6 & 2) để tránh hiện tượng trôi bbox (interpolation drift).`
