@@ -77,6 +77,13 @@ Cấu hình từ `outputs/model_run_config.json`:
 | BoT-SORT + ReID vs gold | 0.763 | 0.711 | 0.820 | 0.872 | 0.900 | 0.792 | 0.860 | 91 | 26 | 2 |
 | ReID vs bạn | 0.767 | 0.712 | 0.826 | 0.913 | 0.872 | 0.748 | 0.907 | 81 | 75 | 3 |
 
+### Thí nghiệm mở rộng (Stretch Experiment - ReID Threshold)
+- `appearance_thresh = 0.70`: HOTA 0.763, IDF1 0.900, FP 91, FN 26, IDSW 2
+- `appearance_thresh = 0.80`: HOTA 0.763, IDF1 0.900, FP 91, FN 26, IDSW 2
+- `appearance_thresh = 0.90`: HOTA 0.763, IDF1 0.899, FP 91, FN 27, IDSW 2
+*Nhận xét:* Ngưỡng 0.70 và 0.80 mang lại hiệu năng tối ưu và ổn định nhất. Khi siết ngưỡng quá cao (`0.90`), yêu cầu về độ tương đồng đặc trưng ngoại hình giữa các frame tăng lên, dẫn đến việc mô hình bỏ sót thêm 1 vị trí xe bị đổi góc quay/ánh sáng (FN tăng từ 26 lên 27, IDF1 giảm nhẹ từ 0.900 xuống 0.899).
+
+
 
 ## 5. Phân tích — năm câu hỏi
 
