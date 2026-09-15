@@ -65,17 +65,18 @@ Cấu hình từ `outputs/model_run_config.json`:
 
 | Mục | Giá trị |
 | --- | --- |
-| Python / ultralytics / torch / lap | `Python 3.14 / ultralytics / PyTorch / lap` |
-| weights / hai tracker | `yolo11n.pt / bytetrack.yaml vs botsort-reid.yaml` |
+| Python / ultralytics / torch / lap | `Python 3.13 / ultralytics 8.4.145 / PyTorch 2.11 / lap 0.5.13` |
+| weights / hai tracker | `yolo26n.pt / bytetrack.yaml vs botsort-reid.yaml` |
 | conf / IoU / imgsz / classes | `0.25 / 0.70 / 960 / 2,5,7` |
-| device | `cpu` |
+| device | `0 (T4 GPU)` |
 
 | So sánh | HOTA | DetA | AssA | LocA | IDF1 | MOTA | MOTP | FP | FN | IDSW |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | bạn vs gold | 0.784 | 0.768 | 0.802 | 0.875 | 0.936 | 0.866 | 0.865 | 68 | 9 | 0 |
-| ByteTrack control vs gold | 0.712 | 0.698 | 0.730 | 0.840 | 0.825 | 0.780 | 0.810 | 92 | 25 | 3 |
-| BoT-SORT + ReID vs gold | 0.735 | 0.705 | 0.768 | 0.845 | 0.860 | 0.795 | 0.815 | 85 | 22 | 1 |
-| ReID vs bạn | 0.750 | 0.720 | 0.780 | 0.850 | 0.875 | 0.810 | 0.820 | 78 | 18 | 1 |
+| ByteTrack control vs gold | 0.709 | 0.649 | 0.776 | 0.846 | 0.875 | 0.749 | 0.823 | 88 | 54 | 2 |
+| BoT-SORT + ReID vs gold | 0.763 | 0.711 | 0.820 | 0.872 | 0.900 | 0.792 | 0.860 | 91 | 26 | 2 |
+| ReID vs bạn | 0.767 | 0.712 | 0.826 | 0.913 | 0.872 | 0.748 | 0.907 | 81 | 75 | 3 |
+
 
 ## 5. Phân tích — năm câu hỏi
 
