@@ -1,9 +1,10 @@
 # Mini annotation guideline — Ngày 3 (tracking)
 
-> Tài liệu quy chuẩn gán nhãn dữ liệu Video Tracking (Multi-Object Tracking - MOT).
-> Định hướng người gán nhãn xử lý nhất quán các tình huống giao nhau, che khuất, rời khung hình và thiết lập keyframe.
+> Tài liệu quy chuẩn gán nhãn dữ liệu Video Tracking cá nhân (Multi-Object Tracking - MOT).
+> Định hướng tác giả xử lý nhất quán các tình huống giao nhau, che khuất, rời khung hình và thiết lập keyframe.
 
-Nhóm / tên: `Âu Xuân Mạnh - 2A202602121 (K4-L2 AI In Action)`
+Họ tên học viên: `Âu Xuân Mạnh - 2A202602121`
+Lớp: `K4-L2 AI In Action`
 Clip: `clip_01`, `clip_02`
 
 ---
@@ -19,11 +20,11 @@ Một lớp duy nhất: **`vehicle`** — xe bốn bánh (xe con, van, xe buýt,
 | xe buýt, minibus | **xe máy / mô tô** |
 | xe tải, xe đầu kéo | xe trong ảnh quảng cáo, trong gương, dưới bóng nước |
 
-Bổ sung của nhóm: `Chỉ gán xe bốn bánh thật đang lưu thông hoặc đỗ trên đường. Không gán hình vẽ xe trên biển quảng cáo.`
+Bổ sung cá nhân: `Chỉ gán xe bốn bánh thật đang lưu thông hoặc đỗ trên đường. Không gán hình vẽ xe trên biển quảng cáo.`
 
 ## 2. Luật ID — phần quan trọng nhất
 
-| Tình huống | Luật của nhóm | Vì sao |
+| Tình huống | Luật áp dụng cá nhân | Vì sao |
 | --- | --- | --- |
 | Xe bị che một phần rồi hiện lại | Giữ nguyên ID nếu thời gian che **dưới 25 frame** (2 giây @ 12.5 fps) | Bảo toàn identity khi xe bị chướng ngại vật/cây/xe khác che tạm thời |
 | Xe bị che lâu hơn ngưỡng trên | Tạo track ID mới khi xuất hiện lại | Quá 25 frame khả năng mất dấu identity cao, tránh gán nhầm xe |
@@ -32,7 +33,7 @@ Bổ sung của nhóm: `Chỉ gán xe bốn bánh thật đang lưu thông hoặ
 
 ## 3. Luật bbox
 
-| Tình huống | Luật của nhóm |
+| Tình huống | Luật áp dụng cá nhân |
 | --- | --- |
 | Xe bị cắt bởi rìa ảnh | bbox chạm đúng rìa ảnh, không đoán/vẽ phần ngoài phạm vi khung hình |
 | Xe bị xe khác che một phần | bbox chỉ ôm phần **nhìn thấy được** (visible part), bật thuộc tính `Occluded` |

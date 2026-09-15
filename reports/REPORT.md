@@ -1,7 +1,8 @@
 # Báo cáo Ngày 3 — Tracking Annotation
 
-Họ tên / nhóm: `AI In Action - Lab Day 3`
+Họ tên học viên: `Âu Xuân Mạnh - 2A202602121`
 Ngày: `2026-09-15`
+
 
 ---
 
